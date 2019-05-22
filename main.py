@@ -26,17 +26,13 @@ def main() -> None:
     # Check for setup dir
     if args.setup_dir_size is not None:
         # if setup dir is passed, make sure dir exists
-        if args.setup_dir is not None:
-            global PATH_TO_PUBLIC_DIR
-            PATH_TO_PUBLIC_DIR = args.setup_dir
-
-            if not os.path.exists(args.setup_dir):
-                os.makedirs(args.setup_dir)
+        if not os.path.exists(PATH_TO_PUBLIC_DIR):
+            os.makedirs(PATH_TO_PUBLIC_DIR)
 
         create_share(PUBLIC_DIR_FILE_NAME, args.setup_dir_size)
         part_offset = get_first_partition_offset(os.path.join(PATH_TO_PUBLIC_DIR_FILE, PUBLIC_DIR_FILE_NAME))
         print('Created share "' + os.path.join(PATH_TO_PUBLIC_DIR_FILE, PUBLIC_DIR_FILE_NAME) + '" and limited it to ' + args.setup_dir_size)
-        print('Mount share with the following command: \nsudo mount -o offset=' + str(part_offset) + ',nosuid,uid=' + CURRENT_USER + ',gid=' + CURRENT_USER + ',umask=0077 ' + os.path.join(PATH_TO_PUBLIC_DIR_FILE, PUBLIC_DIR_FILE_NAME) + ' ' + PATH_TO_PUBLIC_DIR)
+        print('Mount share with the following command: \n\nsudo mount -o offset=' + str(part_offset) + ',nosuid,uid=' + CURRENT_USER + ',gid=' + CURRENT_USER + ',umask=0077 ' + os.path.join(PATH_TO_PUBLIC_DIR_FILE, PUBLIC_DIR_FILE_NAME) + ' ' + PATH_TO_PUBLIC_DIR)
 
     # run last
     print('\nRsync from client with: rsync <src file> ' + CURRENT_USER + '@' + get_local_ip() + ':' + PATH_TO_PUBLIC_DIR)
