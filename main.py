@@ -32,7 +32,7 @@ def main() -> None:
 
             if not os.path.exists(args.setup_dir):
                 os.makedirs(args.setup_dir)
-        # if setup_dir is specified, size should be specified as well
+
         create_share(PUBLIC_DIR_FILE_NAME, args.setup_dir_size)
         part_offset = get_first_partition_offset(os.path.join(PATH_TO_PUBLIC_DIR_FILE, PUBLIC_DIR_FILE_NAME))
         print('Created share "' + os.path.join(PATH_TO_PUBLIC_DIR_FILE, PUBLIC_DIR_FILE_NAME) + '" and limited it to ' + args.setup_dir_size)

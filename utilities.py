@@ -29,7 +29,7 @@ class ArgParser(object):
         self.parser = argparse.ArgumentParser(description='Parse server arguments')
         # self.parser.add_argument('--import', type=str, help='Add public key to authorized_keys')
         self.parser.add_argument('-i', '--import', dest='pub_key_arg', help='Public key to import. Can import from raw string, file and Github username')
-        self.parser.add_argument('--dir', dest='setup_dir', default=os.path.expanduser('~/public/'), help='Directory that will be allowed to share files to.')
+        # self.parser.add_argument('--dir', dest='setup_dir', default=os.path.expanduser('~/public/'), help='Directory that will be allowed to share files to.')
         self.parser.add_argument('--size', dest='setup_dir_size', help='Limit of the shared directory. Can use letters e.g: 1M, 2G, 512B, 1024K. Default size is in bytes')
 
     def parse_args(self, inp=[]) -> argparse.Namespace:
