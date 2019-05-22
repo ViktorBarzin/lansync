@@ -29,8 +29,8 @@ class ArgParser(object):
         self.parser = argparse.ArgumentParser(description='Parse server arguments')
         # self.parser.add_argument('--import', type=str, help='Add public key to authorized_keys')
         self.parser.add_argument('-i', '--import', dest='pub_key_arg', help='Public key to import. Can import from raw string, file and Github username')
-        self.parser.add_argument('--dir', dest='setup_dir', required='--size' in sys.argv, help='Directory to use as public share')
-        self.parser.add_argument('--size', dest='setup_dir_size', required='--dir' in sys.argv, help='Limit of the shared directory. Can use letters e.g: 1MB, 2GB, 512B, 1024KB. Default size is in bytes')
+        self.parser.add_argument('--dir', dest='setup_dir', default=os.path.expanduser('~/public/'), help='Directory that will be allowed to share files to.')
+        self.parser.add_argument('--size', dest='setup_dir_size', help='Limit of the shared directory. Can use letters e.g: 1M, 2G, 512B, 1024K. Default size is in bytes')
 
     def parse_args(self, inp=[]) -> argparse.Namespace:
         if inp == []:
@@ -200,7 +200,7 @@ def parse_size(size: str) -> int:
         raise ValueError(f'Invalid size: {size}')
     size_int = int(size_split[0])
 
-    units = {'B': 1, 'KB': 2**10, 'MB': 2**20, 'GB': 2**30, 'TB': 2**40}
+    units = {'': 1, 'K': 2**10, 'M': 2**20, 'G': 2**30, 'T': 2**40}
     unit = re.findall(r'[^\d]+', size)
     if len(unit) != 1:
         raise ValueError(f'Invalid unit: {unit}')
@@ -212,7 +212,7 @@ def get_first_partition_offset(drive_path: str) -> int:
     # empirical tests showed that offset is 65536 most of the time
     # if on linux, do some bashing, to extract
     if sys.platform == 'linux' or sys.platform == 'linux2':
-        cmd = "parted -s " + os.path.join(PATH_TO_PUBLIC_DIR_FILE, drive_path) + " unit B print |awk '/^Number/{p=1;next}; p{gsub(/[^[:digit:]]/, \"\", $2); print $2}'"
+        cmd = "parted -s " + drive_path + " unit B print |awk '/^Number/{p=1;next}; p{gsub(/[^[:digit:]]/, \"\", $2); print $2}'"
         result = os.popen(cmd).read()  # run and read output
         size = int(result.split('\n')[0])  # assert first netry is num
     else:
