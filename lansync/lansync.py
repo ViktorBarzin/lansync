@@ -1,7 +1,7 @@
 import os
 # import guestfs
-from utilities import ArgParser, get_pub_keys, is_key_imported, import_key, get_local_ip, parse_size, get_first_partition_offset
-from settings import CURRENT_USER, PATH_TO_PUBLIC_DIR, AUTHORIZED_KEYS_PATH, PATH_TO_PUBLIC_DIR_FILE, PUBLIC_DIR_FILE_NAME
+from lansync.utilities import ArgParser, get_pub_keys, is_key_imported, import_key, get_local_ip, parse_size, get_first_partition_offset
+from lansync.settings import CURRENT_USER, PATH_TO_PUBLIC_DIR, AUTHORIZED_KEYS_PATH, PATH_TO_PUBLIC_DIR_FILE, PUBLIC_DIR_FILE_NAME
 
 
 def main() -> None:

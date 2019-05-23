@@ -1,0 +1,3 @@
+#!python
+from lansync.lansync import main
+main()

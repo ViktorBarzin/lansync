@@ -9,7 +9,7 @@ import sys
 from sshpubkeys import SSHKey, InvalidKeyError
 from typing import Optional, List
 from urllib.request import urlopen
-from settings import SECURE_OPTIONS, AUTHORIZED_KEYS_PATH
+from lansync.settings import SECURE_OPTIONS, AUTHORIZED_KEYS_PATH
 
 
 def log(msg, level=0) -> None:

@@ -1,0 +1,12 @@
+README.md
+setup.py
+bin/lansync
+lansync/__init__.py
+lansync/guestfs.py
+lansync/lansync.py
+lansync/settings.py
+lansync/utilities.py
+lansync.egg-info/PKG-INFO
+lansync.egg-info/SOURCES.txt
+lansync.egg-info/dependency_links.txt
+lansync.egg-info/top_level.txt
