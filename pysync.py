@@ -1,13 +1,3 @@
-'''
-Intro point to run.
-
-This script is responsible for setting up the local part of rsync-ing files:
-    - Server:
-        - read and import source public key and setup secure rsync-ing
-
-    Client:
-        - reads address to rsync to
-'''
 import os
 import guestfs
 from utilities import ArgParser, get_pub_keys, is_key_imported, import_key, get_local_ip, parse_size, get_first_partition_offset
