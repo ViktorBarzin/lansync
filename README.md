@@ -15,7 +15,7 @@ Peer-to-peer should be easy, especially when connected to the same network! How 
 Read on.
 
 # What is this project about?
-`pysync` is an application that simplifies file transfers between peers connected to the same network.
+`lansync` is an application that simplifies file transfers between peers connected to the same network.
 
 It is a wrapper around the popular [rsync](https://en.wikipedia.org/wiki/Rsync) tool.
 [The way rsync works](https://rsync.samba.org/how-rsync-works.html) is really clever and it's quite easy to synchronize files on different machines.
@@ -27,9 +27,9 @@ To be more precise you are allowed only to run `rsync --server` on the receiving
 
 # Demo
 
-Here you can see a simple example. The client on the left wants to send `test.txt` to the client on the left. You can see that both machines have different ip addresses but are on the same network. Before running `pysync` the `rsync` command fails dues to missing permissions, but once the public key of the machine on the right is imported, rsync succeeds and the file is  successfully sent.
+Here you can see a simple example. The client on the left wants to send `test.txt` to the client on the left. You can see that both machines have different ip addresses but are on the same network. Before running `lansync` the `rsync` command fails dues to missing permissions, but once the public key of the machine on the right is imported, rsync succeeds and the file is  successfully sent.
 
-![](./assets/pysync-demo.gif)
+![](./assets/lansync-demo.gif)
 
 Currently key importing can be done in several ways with `-i` or `--import`:
 - Raw string of passed
@@ -45,26 +45,26 @@ You don't want people trolling you by sending 100GB files just do troll you and 
 
 How does it work?
 
-When you run `pysync --size <some size>` a file is created with that size on your machine in the `~/.pysync/` directory.
+When you run `lansync --size <some size>` a file is created with that size on your machine in the `~/.lansync/` directory.
 Afterwards that file is formatted as a disk image and a single *ext4* partition is setup.
 
 Mounting filesystems requires `sudo` access so it has been left up to you to mount the new filesystem in you share directory.
 The application tells you how to do that exactly in a secure way.
 
-![](./assets/pysync-size.gif)
+![](./assets/lansync-size.gif)
 
 Essentially, people are sharing files to your virtual filesystem that you can delete anytime you want without affecting the rest of your system.
 
 # Installation
 Currently I do no provide a single binary so I recommend installing dependencies in a virtual environment:
 ```bash
-$ git clone git@github.com:ViktorBarzin/pysync.git
+$ git clone git@github.com:ViktorBarzin/lansync.git
 $ pip install -r requirements.txt
 ```
 
 See help with
 ```bash
-$ python pysync.py -h
+$ python lansync.py -h
 ```
 
 # TODO:
