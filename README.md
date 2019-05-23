@@ -95,4 +95,3 @@ $ python lansync.py -h
 - smb support
 
 # Known issues
-- Since the app is composed of multiple files, moving any of them to another directory may result if failure to run. (Paths are painful)
