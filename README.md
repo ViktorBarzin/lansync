@@ -45,7 +45,7 @@ You don't want people trolling you by sending 100GB files just do troll you and 
 
 How does it work?
 
-When you run `pysync --size <some size>` a file is created with that size on your machine in the `fs_files/` directory.
+When you run `pysync --size <some size>` a file is created with that size on your machine in the `~/.pysync/` directory.
 Afterwards that file is formatted as a disk image and a single *ext4* partition is setup.
 
 Mounting filesystems requires `sudo` access so it has been left up to you to mount the new filesystem in you share directory.

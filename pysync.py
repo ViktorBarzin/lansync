@@ -6,6 +6,9 @@ from settings import CURRENT_USER, PATH_TO_PUBLIC_DIR, AUTHORIZED_KEYS_PATH, PAT
 
 def main() -> None:
     args = ArgParser().parse_args()
+    # make sure conig file exists
+    if not os.path.exists(PATH_TO_PUBLIC_DIR_FILE):
+        os.makedirs(PATH_TO_PUBLIC_DIR_FILE)
 
     # Check for keys to import
     keys_to_import = get_pub_keys(args.pub_key_arg)
