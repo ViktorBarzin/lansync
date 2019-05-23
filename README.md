@@ -6,7 +6,7 @@
 
 \- What if you file is bigger than 25MB? What if you want to transfer a 10GB archive or a VM image?
 
-Online file sharing services are cool, however, there are 2 things I dislike about them:
+Not everyone has big USB sticks or external hard drives with them all the time. Online file sharing services are cool, however, there are 2 things I dislike about them:
 1. Sending any file to a peer means uploading it on a server first and then my peer has to download it which is a total waste of traffic. What if my bandwidth is low?
 2. Privacy concerns - I don't want someone potentially snooping on my files.
 
@@ -46,15 +46,30 @@ You don't want people trolling you by sending 100GB files just do troll you and 
 How does it work?
 
 When you run `pysync --size <some size>` a file is created with that size on your machine in the `fs_files/` directory.
-Afterwards that file is formatted as a disk image, a single *ext4* partition is setup with the size that you have specified.
+Afterwards that file is formatted as a disk image and a single *ext4* partition is setup.
 
 Mounting filesystems requires `sudo` access so it has been left up to you to mount the new filesystem in you share directory.
 The application tells you how to do that exactly in a secure way.
 
 ![](./assets/pysync-size.gif)
 
-# TODO:
-- smb support
-# Dependencies
+Essentially, people are sharing files to your virtual filesystem that you can delete anytime you want without affecting the rest of your system.
 
-python3-libguestfs
+# Installation
+Currently I do no provide a single binary so I recommend installing dependencies in a virtual environment:
+```bash
+$ git clone git@github.com:ViktorBarzin/pysync.git
+$ pip install -r requirements.txt
+```
+
+See help with
+```bash
+$ python pysync.py -h
+```
+
+# TODO:
+- add PyPi package/binary
+- smb support
+
+# Known issues
+- Since the app is composed of multiple files, moving any of them to another directory may result if failure to run. (Paths are painful)
