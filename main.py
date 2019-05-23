@@ -35,7 +35,7 @@ def main() -> None:
         print('Mount share with the following command: \n\nsudo mount -o offset=' + str(part_offset) + ',nosuid,uid=' + CURRENT_USER + ',gid=' + CURRENT_USER + ',umask=0077 ' + os.path.join(PATH_TO_PUBLIC_DIR_FILE, PUBLIC_DIR_FILE_NAME) + ' ' + PATH_TO_PUBLIC_DIR)
 
     # run last
-    print('\nRsync from client with: rsync <src file> ' + CURRENT_USER + '@' + get_local_ip() + ':' + PATH_TO_PUBLIC_DIR)
+    print('\nRsync from client with: rsync <src file> ' + CURRENT_USER + '@' + get_local_ip() + ':')
 
 
 def parse_import_key(key_to_import: str) -> None:
