@@ -31,12 +31,17 @@ Here you can see a simple example. The client on the left wants to send `test.tx
 
 ![](./pysync-demo.gif)
 
-Currently key importing can be done in several ways:
-- Raw string of passed as cli argument to `-i` or `--import`
+Currently key importing can be done in several ways with `-i` or `--import`:
+- Raw string of passed
 - Read from a file
 - Github username
 
 Note that for each of the last two, if multiple keys are found, they will all be added.
+
+Now since you are importing other people's (hopefully ones you trust) keys it would be a good idea to limit the share directory in some way.
+You don't want people trolling you by sending 100GB files just do troll you and leave with without any free space.
+
+`pysync` to the help - you can run `pysync --size <some size>` to set a limit to how big the public directory may grow up to.
 
 # TODO:
 - smb support
