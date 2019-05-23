@@ -58,9 +58,25 @@ Essentially, people are sharing files to your virtual filesystem that you can de
 # Installation
 Currently I do no provide a single binary so I recommend installing dependencies in a virtual environment:
 
-## Usage
 ```bash
 $ pip install lansync
+```
+
+## Usage
+
+```bash
+$ lansync -h
+usage: lansync [-h] [-i PUB_KEY_ARG] [--size SETUP_DIR_SIZE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i PUB_KEY_ARG, --import PUB_KEY_ARG
+                        Public key to import. Can import from raw string, file
+                        and Github username
+  --size SETUP_DIR_SIZE
+                        Limit of the shared directory. Can use letters e.g:
+                        1M, 2G, 512B, 1024K. Default size is in bytes
+
 ```
 
 ## Development
