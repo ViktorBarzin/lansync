@@ -9,4 +9,5 @@ lansync/utilities.py
 lansync.egg-info/PKG-INFO
 lansync.egg-info/SOURCES.txt
 lansync.egg-info/dependency_links.txt
+lansync.egg-info/requires.txt
 lansync.egg-info/top_level.txt

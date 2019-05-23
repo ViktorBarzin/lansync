@@ -2,5 +2,4 @@
 .mypy_cache/
 .ropeproject/
 __pycache__/
-fs_files/*
-!fs_files/.gitkeep
+.mypy_cache/*

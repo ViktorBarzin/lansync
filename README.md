@@ -57,6 +57,13 @@ Essentially, people are sharing files to your virtual filesystem that you can de
 
 # Installation
 Currently I do no provide a single binary so I recommend installing dependencies in a virtual environment:
+
+## Usage
+```bash
+$ pip install lansync
+```
+
+## Development
 ```bash
 $ git clone git@github.com:ViktorBarzin/lansync.git
 $ pip install -r requirements.txt
@@ -68,7 +75,7 @@ $ python lansync.py -h
 ```
 
 # TODO:
-- add PyPi package/binary
+~~- add PyPi package/binary~~
 - smb support
 
 # Known issues

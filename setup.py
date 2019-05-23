@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="lansync-test",
-    version="0.0.7",
+    name="lansync",
+    version="0.0.1",
     author="Viktor Barzin",
     author_email="vbarzin@gmail.com",
     description="Make file sharing easier",
