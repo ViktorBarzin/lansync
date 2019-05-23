@@ -29,7 +29,7 @@ To be more precise you are allowed only to run `rsync --server` on the receiving
 
 Here you can see a simple example. The client on the left wants to send `test.txt` to the client on the left. You can see that both machines have different ip addresses but are on the same network. Before running `pysync` the `rsync` command fails dues to missing permissions, but once the public key of the machine on the right is imported, rsync succeeds and the file is  successfully sent.
 
-![](./pysync-demo.gif)
+![](./assets/pysync-demo.gif)
 
 Currently key importing can be done in several ways with `-i` or `--import`:
 - Raw string of passed
@@ -41,7 +41,17 @@ Note that for each of the last two, if multiple keys are found, they will all be
 Now since you are importing other people's (hopefully ones you trust) keys it would be a good idea to limit the share directory in some way.
 You don't want people trolling you by sending 100GB files just do troll you and leave with without any free space.
 
-`pysync` to the help - you can run `pysync --size <some size>` to set a limit to how big the public directory may grow up to.
+## Share size limit
+
+How does it work?
+
+When you run `pysync --size <some size>` a file is created with that size on your machine in the `fs_files/` directory.
+Afterwards that file is formatted as a disk image, a single *ext4* partition is setup with the size that you have specified.
+
+Mounting filesystems requires `sudo` access so it has been left up to you to mount the new filesystem in you share directory.
+The application tells you how to do that exactly in a secure way.
+
+![](./assets/pysync-size.gif)
 
 # TODO:
 - smb support
