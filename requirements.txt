@@ -9,7 +9,7 @@ chardet==3.0.4
 constantly==15.1.0
 cryptography==2.6.1
 decorator==4.4.0
-ecdsa==0.13.2
+ecdsa==0.13.3
 future==0.17.1
 hyperlink==19.0.0
 hypothesis==4.23.6
